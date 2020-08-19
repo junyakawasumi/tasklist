@@ -30,9 +30,9 @@ public class NewServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("_token", request.getSession().getId());
+        request.setAttribute("_token", request.getSession().getId()); //セッションIDを格納
 
-        request.setAttribute("task", new Task());
+        request.setAttribute("task", new Task()); //Taskのインスタンスを格納
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
         rd.forward(request, response);
